@@ -467,7 +467,8 @@ class TsChar {
             if (code >= 0x7521 && code <= 0x764B) {
                 return charTable.gaiji_2_unicode[code];
             } else if (code >= 0x7A4D && code <= 0x7E7D) {
-                return charTable.gaiji_1_unicode[code];
+                const unicode = charTable.gaiji_1_unicode[code];
+                return charTable.gaiji_1_unicode_compat[unicode] ? charTable.gaiji_1_unicode_compat[unicode] : unicode;
             }
             return "";
         } else {
